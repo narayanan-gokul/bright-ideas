@@ -15,6 +15,8 @@ rust.
     - Make it run ssh-agent if the directory contains a git repository.
 10. LLM in C
 11. LFS - Linux from scratch
+12. Terminal based battleship that can be played over wireless LAN.
+13. Redstone battleship in minecraft.
 
 # Software Standards Implementation Roadmap (Rust and C)
 
