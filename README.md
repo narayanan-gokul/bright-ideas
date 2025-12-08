@@ -31,17 +31,17 @@ system-level learning and safe abstractions.
 ## 1. Approach Overview
 
 ### Three-Layer Method
-1. *Understand* – Study the problem the standard solves. Read overview
+1. **Understand** – Study the problem the standard solves. Read overview
    sections, examine a small reference implementation, and sketch the system.
-2. *Scaffold* – Build a minimal working version. Hard-code valid examples and
-   replace constants with real logic. Use Result<T, E> (Rust) or structured
+2. **Scaffold** – Build a minimal working version. Hard-code valid examples and
+   replace constants with real logic. Use `Result<T, E>` (Rust) or structured
    error handling (C) early and test modules.
-3. *Refine & Verify* – Expand correctness. Add tests, compare against real
+3. **Refine & Verify** – Expand correctness. Add tests, compare against real
    tools, and support optional features incrementally.
 
 ### Best Practices
 - Modularize code and keep functions small.
-- Run formatters and linters regularly (cargo fmt/clippy in Rust).
+- Run formatters and linters regularly (`cargo fmt`/`clippy` in Rust).
 - Version-control aggressively with small commits.
 - Document design decisions and lessons learned after each project.
 
@@ -75,15 +75,15 @@ system-level learning and safe abstractions.
 ## 3. Phase Plan
 
 ### Phase 1 (Weeks 1–3)
-*DNS → HTTP/1.1 → JSON Parser → WebSocket Protocol*  
+**DNS → HTTP/1.1 → JSON Parser → WebSocket Protocol**  
 Focus: Networking, basic protocols, recursive data structures, async communication.
 
 ### Phase 2 (Weeks 4–6)
-*WAV → ZIP → ELF → PNG Decoder*  
+**WAV → ZIP → ELF → PNG Decoder**  
 Focus: File formats, memory management, binary parsing, modular design.
 
 ### Phase 3 (Weeks 7–10)
-*SQLite → SMTP*  
+**SQLite → SMTP**  
 Focus: Storage, parsing, modular systems, concurrency, and networking.
 
 -------------------------------------------------------------------------------
@@ -95,14 +95,47 @@ Focus: Storage, parsing, modular systems, concurrency, and networking.
 - Sketch parse flow: input → tokens → tree → serialize back.
 
 ### Stage 2: Scaffold
-- Define enum JsonValue { Null, Bool, Number(f64), String(String), Array(Vec<JsonValue>), Object(HashMap<String, JsonValue>) }.
-- Hard-code parsing of a single valid JSON like {"key": "value"}.
+- Define `enum JsonValue { Null, Bool, Number(f64), String(String), Array(Vec<JsonValue>), Object(HashMap<String, JsonValue>) }`.
+- Hard-code parsing of a single valid JSON like `{"key": "value"}`.
 - Print the internal structure for inspection.
 
 ### Stage 3: Refine & Verify
 - Implement string escaping, number parsing, and error handling.
-- Write property-based tests using proptest:
+- Write property-based tests using `proptest`:
   encode → decode → encode must be stable.
-- Compare output with serde_json.
+- Compare output with `serde_json`.
 
-Deliverable: minimal but correct JSON parser and s
+Deliverable: minimal but correct JSON parser and serializer.
+
+-------------------------------------------------------------------------------
+
+## 5. Approach for Tackling Complex Software
+
+1. **Start small:** Implement minimal viable features first (e.g., file headers).  
+2. **Incremental development:** Add features step-by-step; test after each addition.  
+3. **Modular design:** Separate parsing, I/O, and processing into distinct functions/modules.  
+4. **Frequent testing:** Use unit tests or small input files to verify correctness.  
+5. **Document design choices:** Note why particular structures or approaches were chosen.  
+6. **Debugging tools:**  
+   - C: gdb, valgrind, strace, ltrace  
+   - Rust: dbg! macro, cargo test, println!  
+7. **Reflect on abstractions:** After completing C projects, consider how Rust could
+   simplify or secure your implementation.  
+8. **Goal:** Gain confidence in structuring, testing, and debugging non-trivial software
+   in both safe and low-level languages.
+
+-------------------------------------------------------------------------------
+
+## 6. References
+
+- RFCs: https://datatracker.ietf.org  
+- Rust resources: The Rust Book, Rustonomicon, Rust by Example  
+- Crates to inspect (not depend on): `serde`, `tokio`, `flate2`, `aes`, `image`,  
+  `reqwest`, `trust-dns`  
+
+-------------------------------------------------------------------------------
+
+**Outcome:**  
+Ten projects covering data formats, networking, OS interfaces, compression,
+security, cryptography, and binary representations. Each teaches a unique layer
+of software engineering, building deep systems understanding through standards.
