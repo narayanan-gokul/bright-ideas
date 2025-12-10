@@ -17,6 +17,7 @@ rust.
 11. LFS - Linux from scratch
 12. Terminal based battleship that can be played over wireless LAN.
 13. Redstone battleship in minecraft.
+14. Purely functional language interpreter, something on the lines of Nix.
 
 # Software Standards Implementation Roadmap (Rust and C)
 
