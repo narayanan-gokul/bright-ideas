@@ -18,6 +18,7 @@ rust.
 12. Terminal based battleship that can be played over wireless LAN.
 13. Redstone battleship in minecraft.
 14. Purely functional language interpreter, something on the lines of Nix.
+15. Embed the interpreter for a toy language in another application so that the application parameters are controlled by the toy language. Rewatch core dumped's video on the subject for clarity.
 
 # Software Standards Implementation Roadmap (Rust and C)
 
